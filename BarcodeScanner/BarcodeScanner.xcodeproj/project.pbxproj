@@ -22,6 +22,15 @@
 		02C6AFE3156FCBA80052B145 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02C6AFE1156FCBA80052B145 /* InfoPlist.strings */; };
 		25404718166AC1D200E13304 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25404717166AC1D200E13304 /* Default-568h@2x.png */; };
 		25404737166AC2EA00E13304 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25404736166AC2EA00E13304 /* AVFoundation.framework */; };
+		5FF324EA1C318348003446A1 /* SoundShellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF324E91C318348003446A1 /* SoundShellViewController.m */; };
+		5FF324F11C3183A5003446A1 /* SoundShellViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FF324F01C3183A5003446A1 /* SoundShellViewController.xib */; };
+		5FF325001C3184A2003446A1 /* testIO.html in Resources */ = {isa = PBXBuildFile; fileRef = 5FF324FD1C3184A2003446A1 /* testIO.html */; };
+		5FF325011C3184A2003446A1 /* TestIOWebview.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF324FF1C3184A2003446A1 /* TestIOWebview.m */; };
+		5FF325141C318A4F003446A1 /* KPTAudioPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF3250F1C318A4F003446A1 /* KPTAudioPlayerViewController.m */; };
+		5FF325151C318A4F003446A1 /* KPTAudioSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF325111C318A4F003446A1 /* KPTAudioSelect.m */; };
+		5FF325161C318A4F003446A1 /* KPTRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF325131C318A4F003446A1 /* KPTRequestBuilder.m */; };
+		5FF325181C318B01003446A1 /* KPTAudioPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FF325171C318B01003446A1 /* KPTAudioPlayerViewController.xib */; };
+		5FF3251B1C319A6E003446A1 /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF3251A1C319A6E003446A1 /* NSString+JSON.m */; };
 		BF3ED6391C315384008DAFE1 /* libZXingObjC-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3ED62C1C315366008DAFE1 /* libZXingObjC-iOS.a */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +107,21 @@
 		02C6AFE2156FCBA80052B145 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
 		25404717166AC1D200E13304 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = SOURCE_ROOT; };
 		25404736166AC2EA00E13304 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		5FF324E81C318348003446A1 /* SoundShellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundShellViewController.h; sourceTree = SOURCE_ROOT; };
+		5FF324E91C318348003446A1 /* SoundShellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundShellViewController.m; sourceTree = SOURCE_ROOT; };
+		5FF324F01C3183A5003446A1 /* SoundShellViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SoundShellViewController.xib; sourceTree = SOURCE_ROOT; };
+		5FF324FD1C3184A2003446A1 /* testIO.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = testIO.html; sourceTree = SOURCE_ROOT; };
+		5FF324FE1C3184A2003446A1 /* TestIOWebview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestIOWebview.h; sourceTree = SOURCE_ROOT; };
+		5FF324FF1C3184A2003446A1 /* TestIOWebview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestIOWebview.m; sourceTree = SOURCE_ROOT; };
+		5FF3250E1C318A4F003446A1 /* KPTAudioPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPTAudioPlayerViewController.h; sourceTree = SOURCE_ROOT; };
+		5FF3250F1C318A4F003446A1 /* KPTAudioPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPTAudioPlayerViewController.m; sourceTree = SOURCE_ROOT; };
+		5FF325101C318A4F003446A1 /* KPTAudioSelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPTAudioSelect.h; sourceTree = SOURCE_ROOT; };
+		5FF325111C318A4F003446A1 /* KPTAudioSelect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPTAudioSelect.m; sourceTree = SOURCE_ROOT; };
+		5FF325121C318A4F003446A1 /* KPTRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPTRequestBuilder.h; sourceTree = SOURCE_ROOT; };
+		5FF325131C318A4F003446A1 /* KPTRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPTRequestBuilder.m; sourceTree = SOURCE_ROOT; };
+		5FF325171C318B01003446A1 /* KPTAudioPlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KPTAudioPlayerViewController.xib; sourceTree = SOURCE_ROOT; };
+		5FF325191C319A6E003446A1 /* NSString+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JSON.h"; sourceTree = SOURCE_ROOT; };
+		5FF3251A1C319A6E003446A1 /* NSString+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSON.m"; sourceTree = SOURCE_ROOT; };
 		BF3ED6221C315366008DAFE1 /* ZXingObjC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZXingObjC.xcodeproj; path = "../ZXingObjC-master/ZXingObjC.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,13 +183,28 @@
 		024D10E5156EAB6F00FE6872 /* BarcodeScanner */ = {
 			isa = PBXGroup;
 			children = (
+				5FF3250E1C318A4F003446A1 /* KPTAudioPlayerViewController.h */,
+				5FF3250F1C318A4F003446A1 /* KPTAudioPlayerViewController.m */,
+				5FF325171C318B01003446A1 /* KPTAudioPlayerViewController.xib */,
+				5FF325101C318A4F003446A1 /* KPTAudioSelect.h */,
+				5FF325111C318A4F003446A1 /* KPTAudioSelect.m */,
+				5FF325121C318A4F003446A1 /* KPTRequestBuilder.h */,
+				5FF325131C318A4F003446A1 /* KPTRequestBuilder.m */,
+				5FF324FD1C3184A2003446A1 /* testIO.html */,
+				5FF324FE1C3184A2003446A1 /* TestIOWebview.h */,
+				5FF324FF1C3184A2003446A1 /* TestIOWebview.m */,
 				02C6AFDB156FCB660052B145 /* AppDelegate.h */,
 				02C6AFDC156FCB660052B145 /* AppDelegate.m */,
 				02C6AFD8156FCB4F0052B145 /* ViewController.h */,
 				02C6AFD9156FCB4F0052B145 /* ViewController.m */,
+				5FF324E81C318348003446A1 /* SoundShellViewController.h */,
+				5FF324E91C318348003446A1 /* SoundShellViewController.m */,
+				5FF324F01C3183A5003446A1 /* SoundShellViewController.xib */,
 				02C6AFDE156FCBA00052B145 /* ViewController.xib */,
 				25404717166AC1D200E13304 /* Default-568h@2x.png */,
 				024D10E6156EAB6F00FE6872 /* Supporting Files */,
+				5FF325191C319A6E003446A1 /* NSString+JSON.h */,
+				5FF3251A1C319A6E003446A1 /* NSString+JSON.m */,
 			);
 			path = BarcodeScanner;
 			sourceTree = "<group>";
@@ -297,8 +336,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FF325181C318B01003446A1 /* KPTAudioPlayerViewController.xib in Resources */,
 				02C6AFE0156FCBA00052B145 /* ViewController.xib in Resources */,
+				5FF324F11C3183A5003446A1 /* SoundShellViewController.xib in Resources */,
 				02C6AFE3156FCBA80052B145 /* InfoPlist.strings in Resources */,
+				5FF325001C3184A2003446A1 /* testIO.html in Resources */,
 				25404718166AC1D200E13304 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,7 +352,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FF325011C3184A2003446A1 /* TestIOWebview.m in Sources */,
+				5FF325151C318A4F003446A1 /* KPTAudioSelect.m in Sources */,
 				02C6AFD7156FCB330052B145 /* main.m in Sources */,
+				5FF325141C318A4F003446A1 /* KPTAudioPlayerViewController.m in Sources */,
+				5FF3251B1C319A6E003446A1 /* NSString+JSON.m in Sources */,
+				5FF324EA1C318348003446A1 /* SoundShellViewController.m in Sources */,
+				5FF325161C318A4F003446A1 /* KPTRequestBuilder.m in Sources */,
 				02C6AFDA156FCB4F0052B145 /* ViewController.m in Sources */,
 				02C6AFDD156FCB660052B145 /* AppDelegate.m in Sources */,
 			);
@@ -426,6 +474,7 @@
 					"$(SRCROOT)/../../**",
 				);
 				INFOPLIST_FILE = "BarcodeScanner-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -444,6 +493,7 @@
 					"$(SRCROOT)/../../**",
 				);
 				INFOPLIST_FILE = "BarcodeScanner-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
