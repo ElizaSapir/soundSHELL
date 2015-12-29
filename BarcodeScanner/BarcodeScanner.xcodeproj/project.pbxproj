@@ -31,6 +31,10 @@
 		5FF325161C318A4F003446A1 /* KPTRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF325131C318A4F003446A1 /* KPTRequestBuilder.m */; };
 		5FF325181C318B01003446A1 /* KPTAudioPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FF325171C318B01003446A1 /* KPTAudioPlayerViewController.xib */; };
 		5FF3251B1C319A6E003446A1 /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF3251A1C319A6E003446A1 /* NSString+JSON.m */; };
+		5FF325361C328FC6003446A1 /* mute.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF325341C328FC6003446A1 /* mute.png */; };
+		5FF325371C328FC6003446A1 /* unmute.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF325351C328FC6003446A1 /* unmute.png */; };
+		5FF325391C329241003446A1 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF325381C329241003446A1 /* logo.png */; };
+		5FF3253B1C3292ED003446A1 /* logoFull.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FF3253A1C3292ED003446A1 /* logoFull.png */; };
 		BF3ED6391C315384008DAFE1 /* libZXingObjC-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3ED62C1C315366008DAFE1 /* libZXingObjC-iOS.a */; };
 /* End PBXBuildFile section */
 
@@ -122,6 +126,10 @@
 		5FF325171C318B01003446A1 /* KPTAudioPlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KPTAudioPlayerViewController.xib; sourceTree = SOURCE_ROOT; };
 		5FF325191C319A6E003446A1 /* NSString+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JSON.h"; sourceTree = SOURCE_ROOT; };
 		5FF3251A1C319A6E003446A1 /* NSString+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSON.m"; sourceTree = SOURCE_ROOT; };
+		5FF325341C328FC6003446A1 /* mute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mute.png; sourceTree = SOURCE_ROOT; };
+		5FF325351C328FC6003446A1 /* unmute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unmute.png; sourceTree = SOURCE_ROOT; };
+		5FF325381C329241003446A1 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = SOURCE_ROOT; };
+		5FF3253A1C3292ED003446A1 /* logoFull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoFull.png; sourceTree = SOURCE_ROOT; };
 		BF3ED6221C315366008DAFE1 /* ZXingObjC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZXingObjC.xcodeproj; path = "../ZXingObjC-master/ZXingObjC.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -183,6 +191,9 @@
 		024D10E5156EAB6F00FE6872 /* BarcodeScanner */ = {
 			isa = PBXGroup;
 			children = (
+				5FF325381C329241003446A1 /* logo.png */,
+				5FF325341C328FC6003446A1 /* mute.png */,
+				5FF325351C328FC6003446A1 /* unmute.png */,
 				5FF3250E1C318A4F003446A1 /* KPTAudioPlayerViewController.h */,
 				5FF3250F1C318A4F003446A1 /* KPTAudioPlayerViewController.m */,
 				5FF325171C318B01003446A1 /* KPTAudioPlayerViewController.xib */,
@@ -201,6 +212,7 @@
 				5FF324E91C318348003446A1 /* SoundShellViewController.m */,
 				5FF324F01C3183A5003446A1 /* SoundShellViewController.xib */,
 				02C6AFDE156FCBA00052B145 /* ViewController.xib */,
+				5FF3253A1C3292ED003446A1 /* logoFull.png */,
 				25404717166AC1D200E13304 /* Default-568h@2x.png */,
 				024D10E6156EAB6F00FE6872 /* Supporting Files */,
 				5FF325191C319A6E003446A1 /* NSString+JSON.h */,
@@ -337,7 +349,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FF325181C318B01003446A1 /* KPTAudioPlayerViewController.xib in Resources */,
+				5FF325361C328FC6003446A1 /* mute.png in Resources */,
+				5FF325391C329241003446A1 /* logo.png in Resources */,
 				02C6AFE0156FCBA00052B145 /* ViewController.xib in Resources */,
+				5FF325371C328FC6003446A1 /* unmute.png in Resources */,
+				5FF3253B1C3292ED003446A1 /* logoFull.png in Resources */,
 				5FF324F11C3183A5003446A1 /* SoundShellViewController.xib in Resources */,
 				02C6AFE3156FCBA80052B145 /* InfoPlist.strings in Resources */,
 				5FF325001C3184A2003446A1 /* testIO.html in Resources */,

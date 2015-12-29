@@ -16,6 +16,7 @@
 @interface KPTAudioPlayerViewController () <UIPickerViewDataSource, UIPickerViewDelegate, IODelegate > {
     id observer;
 }
+@property (weak, nonatomic) IBOutlet UIView *audioControlsView;
 @property (nonatomic, strong) AVPlayer *audioPlayer;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
@@ -32,7 +33,7 @@
 
 - (void)viewDidLoad {
     __weak KPTAudioPlayerViewController *weakSelf = self;
-    _languagesStartFrame = _languages.frame;
+    _languagesStartFrame = _languagesHolderView.frame;
     _webview.ioDelegate = self;
     [KPTRequestBuilder fetchAudioListForEntry:_jsonQRCode.parsed[@"entryId"] completion:^(NSArray *audios, NSError *error) {
         weakSelf.audios = audios;
@@ -66,6 +67,7 @@
     CGRect newFrame = shouldPresent ? (CGRect){0, newY, _languagesHolderView.frame.size} : _languagesStartFrame;
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         _languagesHolderView.frame = newFrame;
+        _audioControlsView.alpha = !shouldPresent;
     } completion:^(BOOL finished) {
         _languages.hidden = !shouldPresent;
     }];
@@ -89,8 +91,8 @@
 
 
 - (IBAction)languagesPressed:(UIButton *)sender {
-    sender.selected = !sender.selected;
     [self presentLanguages:sender.selected];
+    sender.selected = !sender.selected;
 }
 
 - (IBAction)disconnectPressed:(UIButton *)sender {
@@ -146,9 +148,9 @@
     return _audios.count;
 }
 
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return [_audios[row] objectForKey:@"tags"];
-}
+//- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+//    return [_audios[row] objectForKey:@"tags"];
+//}
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     __weak KPTAudioPlayerViewController *weakSelf = self;
@@ -158,7 +160,13 @@
             [weakSelf createPlayer:url];
         });
     }];
-    
+}
+
+- (NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    NSString *title = [_audios[row] objectForKey:@"tags"];
+    UIColor *color = [UIColor colorWithRed:93/255.0 green:93/255.0 blue:93/255.0 alpha:1];
+    NSAttributedString *attString = [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName:color}];
+    return attString;
 }
 
 @end
