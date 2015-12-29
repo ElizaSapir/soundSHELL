@@ -23,50 +23,78 @@
 @property (weak, nonatomic) IBOutlet UISlider *volumeSlider;
 @property (weak, nonatomic) IBOutlet TestIOWebview *webview;
 @property (weak, nonatomic) IBOutlet UIPickerView *languages;
+@property (weak, nonatomic) IBOutlet UIView *languagesHolderView;
 @property (nonatomic, copy) NSArray *audios;
+@property (nonatomic) CGRect languagesStartFrame;
 @end
 
 @implementation KPTAudioPlayerViewController
 
 - (void)viewDidLoad {
     __weak KPTAudioPlayerViewController *weakSelf = self;
+    _languagesStartFrame = _languages.frame;
     _webview.ioDelegate = self;
     [KPTRequestBuilder fetchAudioListForEntry:_jsonQRCode.parsed[@"entryId"] completion:^(NSArray *audios, NSError *error) {
         weakSelf.audios = audios;
         [KPTRequestBuilder audioFor:_audios.firstObject completion:^(NSURL *url, NSError *error) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                _audioPlayer = [[AVPlayer alloc] initWithURL:url];
-                observer = [_audioPlayer addPeriodicTimeObserverForInterval:CMTimeMake(20, 100)
-                                                                      queue:dispatch_get_main_queue()
-                                                                 usingBlock:^(CMTime time) {
-                                                                     [weakSelf updateProgress:CMTimeGetSeconds(time)];
-                                                                     
-                                                                 }];
+                [weakSelf presentLanguages:YES];
+                [weakSelf.languages reloadAllComponents];
+                [weakSelf createPlayer:url];
             });
         }];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [weakSelf.languages reloadAllComponents];
-        });
     }];
 
 }
 
-- (IBAction)mutePressed:(UIBarButtonItem *)sender {
-    if ([sender.title isEqualToString:@"Mute"]) {
+- (void)createPlayer:(NSURL *)url {
+    __weak KPTAudioPlayerViewController *weakSelf = self;
+    observer = nil;
+    _audioPlayer = nil;
+    _audioPlayer = [[AVPlayer alloc] initWithURL:url];
+    observer = [_audioPlayer addPeriodicTimeObserverForInterval:CMTimeMake(20, 100)
+                                                          queue:dispatch_get_main_queue()
+                                                     usingBlock:^(CMTime time) {
+                                                         dispatch_async(dispatch_get_main_queue(), ^{
+                                                             [weakSelf updateProgress:CMTimeGetSeconds(time)];
+                                                         });
+                                                     }];
+}
+
+- (void)presentLanguages:(BOOL)shouldPresent {
+    CGFloat newY = _languagesHolderView.frame.origin.y - _languagesHolderView.frame.size.height + 30.0;
+    CGRect newFrame = shouldPresent ? (CGRect){0, newY, _languagesHolderView.frame.size} : _languagesStartFrame;
+    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        _languagesHolderView.frame = newFrame;
+    } completion:^(BOOL finished) {
+        _languages.hidden = !shouldPresent;
+    }];
+}
+
+- (IBAction)mutePressed:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    if (sender.selected) {
         _audioPlayer.volume = 0.0;
-        sender.title = @"Unmute";
         _volumeSlider.enabled = NO;
     } else {
         _audioPlayer.volume = _volumeSlider.value;
-        sender.title = @"Mute";
         _volumeSlider.enabled = YES;
     }
 }
 
-
 - (IBAction)changeVolume:(UISlider *)sender {
     _audioPlayer.volume = sender.value;
     _volumeLabel.text = [NSString stringWithFormat:@"%.02f", sender.value];
+}
+
+
+- (IBAction)languagesPressed:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    [self presentLanguages:sender.selected];
+}
+
+- (IBAction)disconnectPressed:(UIButton *)sender {
+    
 }
 
 - (void)updateProgress:(NSTimeInterval)time {
@@ -97,8 +125,8 @@
     } else if ([comp.firstObject isEqualToString:@"play"]) {
         [_audioPlayer play];
     } else {
+        float seconds = [comp.lastObject floatValue] + 1.5;
         if (_audioPlayer && CMTimeGetSeconds(_audioPlayer.currentTime) == 0 && _audioPlayer.rate == 0) {
-            float seconds = [comp.lastObject floatValue] + 2.0;
             [_audioPlayer seekToTime:CMTimeMake(seconds, 1)];
             [_audioPlayer play];
         }
@@ -124,19 +152,10 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     __weak KPTAudioPlayerViewController *weakSelf = self;
+    [_audioPlayer pause];
     [KPTRequestBuilder audioFor:_audios[row] completion:^(NSURL *url, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            _audioPlayer = [[AVPlayer alloc] initWithURL:url];
-//            [_audioPlayer play];
-            float seconds = [_jsonQRCode.parsed[@"currentTime"] floatValue];
-            CMTime time = CMTimeMake(seconds, 1);
-            [_audioPlayer seekToTime:time];
-            observer = [_audioPlayer addPeriodicTimeObserverForInterval:CMTimeMake(20, 100)
-                                                                  queue:dispatch_get_main_queue()
-                                                             usingBlock:^(CMTime time) {
-                                                                 [weakSelf updateProgress:CMTimeGetSeconds(time)];
-                                                                 
-                                                             }];
+            [weakSelf createPlayer:url];
         });
     }];
     
