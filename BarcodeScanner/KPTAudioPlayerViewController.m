@@ -12,13 +12,16 @@
 #import "KPTRequestBuilder.h"
 #import "NSString+JSON.h"
 #import "TestIOWebview.h"
+#import "ShellProgressView.h"
 
 @interface KPTAudioPlayerViewController () <UIPickerViewDataSource, UIPickerViewDelegate, IODelegate > {
     id observer;
+    NSDictionary *langs;
 }
 @property (weak, nonatomic) IBOutlet UIView *audioControlsView;
 @property (nonatomic, strong) AVPlayer *audioPlayer;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
+@property (weak, nonatomic) IBOutlet ShellProgressView *shellProgress;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *volumeLabel;
 @property (weak, nonatomic) IBOutlet UISlider *volumeSlider;
@@ -33,6 +36,7 @@
 
 - (void)viewDidLoad {
     __weak KPTAudioPlayerViewController *weakSelf = self;
+    langs = @{@"kast_en": @"English", @"kast_ge": @"German"};
     _languagesStartFrame = _languagesHolderView.frame;
     _webview.ioDelegate = self;
     [KPTRequestBuilder fetchAudioListForEntry:_jsonQRCode.parsed[@"entryId"] completion:^(NSArray *audios, NSError *error) {
@@ -102,7 +106,8 @@
 - (void)updateProgress:(NSTimeInterval)time {
     AVPlayerItem *item = _audioPlayer.currentItem;
     float progress = time / CMTimeGetSeconds(item.asset.duration);
-    [_progressBar setProgress:progress animated:YES];
+//    [_progressBar setProgress:progress animated:YES];
+    _shellProgress.progress = progress;
     int min = (progress * CMTimeGetSeconds(item.asset.duration)) / 60;
     int sec = ((progress * CMTimeGetSeconds(item.asset.duration)) - (min * 60));
     _timeLabel.text = [NSString stringWithFormat:@"%.02d:%.02d", min, sec];
@@ -163,7 +168,7 @@
 }
 
 - (NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    NSString *title = [_audios[row] objectForKey:@"tags"];
+    NSString *title = langs[[_audios[row] objectForKey:@"tags"]];
     UIColor *color = [UIColor colorWithRed:93/255.0 green:93/255.0 blue:93/255.0 alpha:1];
     NSAttributedString *attString = [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName:color}];
     return attString;

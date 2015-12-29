@@ -11,6 +11,7 @@
                 <outlet property="languages" destination="2iw-Y0-YMg" id="vC6-bm-h2v"/>
                 <outlet property="languagesHolderView" destination="gaU-7i-QCo" id="T3z-Cd-V5a"/>
                 <outlet property="progressBar" destination="xUy-Sy-fYh" id="KXX-df-aXQ"/>
+                <outlet property="shellProgress" destination="EDb-gP-RIa" id="JaH-Kj-wKy"/>
                 <outlet property="timeLabel" destination="MXF-S1-qk0" id="zcD-Aa-4C5"/>
                 <outlet property="view" destination="iN0-l3-epB" id="gLs-3M-Rzh"/>
                 <outlet property="volumeLabel" destination="C2l-cZ-KVx" id="0xV-se-8bD"/>
@@ -69,7 +70,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" id="fjY-IR-9nA">
-                            <rect key="frame" x="9" y="-1" width="245" height="31"/>
+                            <rect key="frame" x="33" y="-1" width="201" height="31"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="minimumTrackTintColor" red="0.36470588240000001" green="0.36470588240000001" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="maximumTrackTintColor" red="0.36470588240000001" green="0.36470588240000001" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -79,7 +80,7 @@
                             </connections>
                         </slider>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dvy-hr-mVi">
-                            <rect key="frame" x="126" y="57" width="68" height="68"/>
+                            <rect key="frame" x="126" y="47" width="68" height="68"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
                             <state key="normal" image="mute.png"/>
                             <state key="selected" title="Un Mute" image="unmute.png"/>
@@ -87,13 +88,6 @@
                                 <action selector="mutePressed:" destination="-1" eventType="touchUpInside" id="aGG-HB-EJJ"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nLQ-ki-P9P">
-                            <rect key="frame" x="88" y="29" width="144" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" red="0.36470588235294116" green="0.36470588235294116" blue="0.36470588235294116" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" id="xUy-Sy-fYh">
                             <rect key="frame" x="35" y="141" width="249" height="2"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -108,7 +102,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="C2l-cZ-KVx">
-                            <rect key="frame" x="266" y="4" width="42" height="21"/>
+                            <rect key="frame" x="242" y="3" width="42" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.36470588235294116" green="0.36470588235294116" blue="0.36470588235294116" alpha="1" colorSpace="calibratedRGB"/>
@@ -121,6 +115,10 @@
                     <rect key="frame" x="87" y="30" width="148" height="184"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoFullEmpty0.png" id="EDb-gP-RIa" customClass="ShellProgressView">
+                    <rect key="frame" x="87" y="30" width="148" height="184"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -129,6 +127,7 @@
     </objects>
     <resources>
         <image name="logoFull.png" width="395" height="490"/>
+        <image name="logoFullEmpty0.png" width="395" height="490"/>
         <image name="mute.png" width="136" height="135"/>
         <image name="unmute.png" width="136" height="135"/>
     </resources>
